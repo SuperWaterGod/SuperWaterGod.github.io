@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>HelloWorld</title>
+      <link href="/2021/08/25/HelloWorld/"/>
+      <url>/2021/08/25/HelloWorld/</url>
+      
+        <content type="html"><![CDATA[<blockquote><h1 id="经典HelloWorld开局"><a href="#经典HelloWorld开局" class="headerlink" title="经典HelloWorld开局"></a>经典HelloWorld开局</h1></blockquote><p>本站采用<em>Github Page + Hexo</em><br>使用<em>Cloudflare</em>代理，域名是腾讯云买服务器送的<br>可以说是白嫖到底了<br>毕竟也没人会看（；´д｀）ゞ</p><p>其实早在今年5月份把Hexo装好了，但是一直没解决国内访问的问题</p><p>后来还是选择了套cf╮(╯▽╰)╭</p><h1 id="测试功能"><a href="#测试功能" class="headerlink" title="测试功能"></a>测试功能</h1><h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure><h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;HelloWorld&#x27;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    msg: String</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 闲聊 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HelloWorld </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
