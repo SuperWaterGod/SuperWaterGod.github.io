@@ -1,107 +1,87 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="战地 QQbot指南"><meta name="keywords" content="指南,战地"><meta name="author" content="SuperWaterGod"><meta name="copyright" content="SuperWaterGod"><title>战地 QQbot指南 | SuperWaterGod</title><link rel="shortcut icon" href="/icon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-4283964850320400',
+  enable_page_level_ads: 'true'
+});
+</script><link rel="dns-prefetch" href="https://hm.baidu.com"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a19e02b8531bfa1192760dc7231b8211";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><link rel="dns-prefetch" href="https://www.google-analytics.com"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-block top_img
-  - var top_img = page.top_img || theme.post_meta.top_img || theme.top_img || config.top_img
-  if (top_img && page.top_img !== false)
-    - var bg_img = top_img !== true ? `background-image: url(${top_img})` : ''
-    - var flag = top_img === true ? 'no-bg' : ''
-    div#top-container(style=bg_img class=flag)
-      include ./includes/header.pug
-      #post-info
-        #post-title= page.title || _p('no_title')
-        #post-meta
-          if (theme.post_meta.date_type)
-            if (theme.post_meta.date_type === 'both')
-              time.post-meta__date
-                i.fa.fa-calendar(aria-hidden="true")
-                =' '+_p('post.created')+' '+date(page.date, config.date_format)
-                span.post-meta__separator |
-                i.fa.fa-calendar-check-o(aria-hidden="true")
-                =' '+_p('post.updated')+' '+date(page.updated, config.date_format)
-            else
-              - var date_type = theme.post_meta.date_type === 'updated' ? 'updated' : 'date'
-              time.post-meta__date #[i.fa.fa-calendar(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-          if (theme.post_meta.categories && page.categories.data.length > 0)
-            if (theme.post_meta.date_type)
-              span.post-meta__separator |
-            each item, index in page.categories.data
-              i.fa.fa-inbox.post-meta__icon(aria-hidden="true")
-              a(href=url_for(item.path)).post-meta__categories #[=item.name]
-              if (index < page.categories.data.length - 1)
-                 i.fa.fa-angle-right(aria-hidden="true")
-          if (theme.disqus.enable && theme.disqus.count)
-            if (theme.post_meta.date_type || theme.post_meta.categories && page.categories.data.length > 0)
-              span.post-meta__separator |
-            i.fa.fa-comment-o.post-meta__icon(aria-hidden="true")
-            a(href=url_for(page.path) + '#disqus_thread')
-              span.disqus-comment-count(data-disqus-identifier=page.path)
-          if (theme.wordcount && theme.wordcount.enable)
-            .post-meta-wordcount
-              span= _p('post.wordcount') + ': '
-              span.word-count= wordcount(page.content)
-              span.post-meta__separator |
-              span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-  else
-    div#top-container.plain
-      include ./includes/header.pug
+ga('create', 'G-N71N78WV05', 'auto');
+ga('send', 'pageview');</script><script async src="https://www.googletagmanager.com/gtag/js?id=8259995414"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '8259995414');</script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '7.2.0'
+} </script><meta name="generator" content="Hexo 7.2.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B3%E8%AF%B7%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">申请方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Menhera%E9%85%B1"><span class="toc-number">2.1.</span> <span class="toc-text">Menhera酱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%93%E5%96%B5"><span class="toc-number">2.2.</span> <span class="toc-text">梓喵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">4.</span> <span class="toc-text">使用说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Menhera%E9%85%B1-1"><span class="toc-number">4.1.</span> <span class="toc-text">Menhera酱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%93%E5%96%B5-1"><span class="toc-number">4.2.</span> <span class="toc-text">梓喵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E5%88%AB%E6%84%9F%E8%B0%A2"><span class="toc-number">5.</span> <span class="toc-text">特别感谢</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">SuperWaterGod</div><div class="author-info__description text-center"></div><div class="follow-button"><a target="_blank" rel="noopener" href="https://github.com/SuperWaterGod">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://space.bilibili.com/2723333">Bilibili</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://stats.uptimerobot.com/0oNnjS2AAQ">Status</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://z3.ax1x.com/2021/08/30/hYtAd1.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">SuperWaterGod</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">索引</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">归类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">战地 QQbot指南</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-08-30</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E6%88%98%E5%9C%B0/">战地</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">551</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>目前而言，战地1社区主流一共有2家QQbot，一个是<strong>Suzubucket</strong>(唯桶)的<u>梓喵</u>，另一个是<strong>SuperWaterGod</strong>(水神)的<u>Menhera酱</u>(胡桃)</p>
+<p>为了分担单独某个Bot的压力，梓喵分身还有<em>中野梓、秋山澪、琴吹紬</em><del>(轻音厨头子)</del>等，Menhera酱分为<em>一号机和二号机</em></p>
+<p>功能上梓喵和胡桃侧重点不同，胡桃侧重于战绩等数据的查询，而梓喵侧重于服务器的管理</p>
+<p>但是胡桃也有绝大部分的服务器管理功能，默认关闭。梓喵也可以查询战绩，默认关闭</p>
+<p><strong>胡桃和梓喵可以同时在群内工作</strong></p>
+<p>当然曾经还有过<del>绒儿</del>、石头、<del>薇尔莉特</del>、<del>嘴臭的鸭二世</del>等Bot，但因账号被封或者缺乏维护已经成为了时代的眼泪</p>
+<p>部分群还有一些专属的bot，但基本不对外开放，这里就不细说了</p>
+<hr>
+<center class="half">
+    <img src="bf-bot/2.jpg" alt="Menhera" style="zoom:55%;" /><img src="bf-bot/3.jpg" alt="Suzubucket" style="zoom:25%;" />
+</center>
 
-block content
-  article#post(class="")
-    if (!top_img)
-      #post-title.plain= page.title || _p('no_title')
-      #post-meta
-        if (theme.post_meta.date_type)
-          - var date_type = theme.post_meta.date_type === 'updated' ? '' : 'date'
-          time.post-meta__date #[i.fa.fa-calendar(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-        if (theme.post_meta.categories && page.categories.data.length > 0)
-          if (theme.post_meta.date_type)
-            span.post-meta__separator |
-          each item, index in page.categories.data
-            i.fa.fa-inbox(aria-hidden="true")
-            a(href=url_for(item.path)).post-meta__categories  #[=item.name]
-            if (index < page.categories.data.length - 1)
-                i.fa.fa-angle-right.post-meta__separator(aria-hidden="true")
-        if (theme.disqus.enable && theme.disqus.count)
-          if (theme.post_meta.date_type || theme.post_meta.categories && page.categories.data.length > 0)
-            span.post-meta__separator |
-          i.fa.fa-comment-o(aria-hidden="true")
-          a(href=url_for(page.path) + '#disqus_thread')
-            span.disqus-comment-count(data-disqus-identifier=page.path)
-        if (theme.wordcount && theme.wordcount.enable)
-          span.post-meta__separator |
-          span.post-meta-wordcount
-            span= _p('post.wordcount') + ': '
-            span.word-count= wordcount(page.content)
-            span.post-meta__separator |
-            span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-    #post-content.article-container!= page.content
-  if (theme.post_copyright && theme.post_copyright.enable)
-    .post-copyright
-      .post-copyright__author
-        span.post-copyright-meta= _p('post.copyright.author') + ": "
-        span.post-copyright-info
-          a(href=`mailto:${config.email}`) #[=config.author]
-      .post-copyright__type
-        span.post-copyright-meta= _p('post.copyright.link') + ": "
-        span.post-copyright-info
-          a(href=url_for(decodeURI(page.permalink))) #[=decodeURI(page.permalink)]
-      .post-copyright__notice
-        span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
-        span.post-copyright-info!= _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
-  if (theme.post_meta.tags)
-    .post-meta__tag-list
-      each item, index in page.tags.data
-        a(href=url_for(item.path)).post-meta__tags #[=item.name]
-  if (theme.QR_code)
-    if (theme.QR_code.length > 0)
-      .post-qr-code
-        each item in theme.QR_code
-          .post-qr-code-item
-            img.post-qr-code__img(src=(item.itemlist||item).img)
-            .post-qr-code__desc=(item.itemlist||item).text
-  include includes/share/index.pug
-  include includes/pagination.pug
-  if (theme.adv && theme.adv.enable)
-    .post-adv!= theme.adv.info
-  if page.comments !== false
-    include includes/comments/index.pug
+
+<hr>
+<h1 id="申请方式"><a href="#申请方式" class="headerlink" title="申请方式"></a>申请方式</h1><h2 id="Menhera酱"><a href="#Menhera酱" class="headerlink" title="Menhera酱"></a>Menhera酱</h2><p>注：<strong>暂不支持BFV以及没有服务器的群的申请</strong></p>
+<ul>
+<li><p>【推荐】发送邮件至：<a href="mailto:&#98;&#102;&#98;&#111;&#116;&#64;&#x73;&#45;&#x77;&#103;&#x2e;&#x6e;&#x65;&#x74;">&#98;&#102;&#98;&#111;&#116;&#64;&#x73;&#45;&#x77;&#103;&#x2e;&#x6e;&#x65;&#x74;</a></p>
+<p>标题：申请战地1QQbot</p>
+<p>内容需包含：服务器名称、群人数、负责人QQ号</p>
+<p>通过后即可添加QQ好友</p>
+</li>
+<li><p>【不推荐】通过QQ临时消息</p>
+<p>通过后即可添加QQ好友</p>
+</li>
+<li><p>【拒绝】直接添加QQ好友</p>
+</li>
+</ul>
+<h2 id="梓喵"><a href="#梓喵" class="headerlink" title="梓喵"></a>梓喵</h2><ul>
+<li><p>邮箱联系： <a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#x40;&#107;&#x2d;&#48;&#110;&#x2e;&#x6f;&#114;&#103;">&#114;&#x6f;&#x6f;&#x74;&#x40;&#107;&#x2d;&#48;&#110;&#x2e;&#x6f;&#114;&#103;</a></p>
+<p>请在邮件内说明QQ号，群号，服务器名等。</p>
+<p>更多消息请访问：<a target="_blank" rel="noopener" href="https://suzubucket.cc/bot/">https://suzubucket.cc/bot/</a></p>
+</li>
+</ul>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>上述Bot均为联ban产品，如果您的服务器&#x2F;群有不正当行为，包括但不限于服主&#x2F;负责人开挂、包庇外挂、诽谤等</p>
+<p>我们有权终止所有服务</p>
+<p>一切解释权均由开发者保留</p>
+<h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><h2 id="Menhera酱-1"><a href="#Menhera酱-1" class="headerlink" title="Menhera酱"></a>Menhera酱</h2><p><a href="https://www.superwatergod.xyz/bf1bot-help/">战地1 QQbot-Menhera酱使用说明</a></p>
+<h2 id="梓喵-1"><a href="#梓喵-1" class="headerlink" title="梓喵"></a>梓喵</h2><p>敬请期待……</p>
+<h1 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h1><ul>
+<li><p>联ban (<a target="_blank" rel="noopener" href="https://bfban.com/">https://bfban.com/</a>) </p>
+<p>Community Network(<a target="_blank" rel="noopener" href="https://discord.gg/R6JyjmufF9">https://discord.gg/R6JyjmufF9</a>)</p>
+<p>在Bot的开发中提供了大量的帮助</p>
+</li>
+<li><p>数名参加测试并及时反馈BUG的群管理以及群员</p>
+</li>
+<li><p>承担服务器开销的各位无私的赞助者</p>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SuperWaterGod</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.superwatergod.xyz/bf-bot/">https://www.superwatergod.xyz/bf-bot/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.superwatergod.xyz">SuperWaterGod</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8C%87%E5%8D%97/">指南</a><a class="post-meta__tags" href="/tags/%E6%88%98%E5%9C%B0/">战地</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/bf1bot-help/"><i class="fa fa-chevron-left">  </i><span>战地1 QQbot-Menhera酱使用说明</span></a></div><div class="next-post pull-right"><a href="/2021/08/25/HelloWorld/"><span>HelloWorld</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="waline"></div><script src="https://cdn.jsdelivr.net/npm/@waline/client"></script><script>Waline({
+  el:'#waline',
+  serverURL: 'https://z5bbu3n1.api.lncldglobal.com',
+  lang: 'zh-CN'
+  avatar: ''
+})</script></div></div><footer class="footer-bg" style="background-image: url(https://z3.ax1x.com/2021/08/30/hYtAd1.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2021 - 2024 By SuperWaterGod</div><div class="framework-info"><span>基于 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
